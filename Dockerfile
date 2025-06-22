@@ -20,6 +20,7 @@ RUN echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER $USER
 WORKDIR /home/$USER
+SHELL ["/bin/bash", "-l", "-c"]
 
 # Install oh-my-posh
 ARG OMP_INSTALL=/home/$USER/oh_my_posh_install.sh
