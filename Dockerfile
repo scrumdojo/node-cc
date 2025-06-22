@@ -11,6 +11,7 @@ RUN apt-get update && \
         curl \
         git \
         gh \
+        nano \
         ripgrep \
         sudo \
         unzip \
