@@ -22,6 +22,15 @@ USER $USER
 WORKDIR /home/$USER
 SHELL ["/bin/bash", "-l", "-c"]
 
+# Install Volta and Node.js + pnpm
+RUN curl https://get.volta.sh | bash
+
+ENV VOLTA_FEATURE_PNPM=1
+
+RUN volta install node && \
+    volta install npm && \
+    volta install pnpm
+
 # Install oh-my-posh
 ARG OMP_INSTALL=/home/$USER/oh_my_posh_install.sh
 COPY --chown=$USER:$USER --chmod=755 sh/oh_my_posh_install.sh $OMP_INSTALL
